@@ -15,6 +15,9 @@
 		957A9AD1235828FB00899DF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957A9ACF235828FB00899DF3 /* Main.storyboard */; };
 		957A9AD32358290000899DF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AD22358290000899DF3 /* Assets.xcassets */; };
 		957A9AD62358290000899DF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AD42358290000899DF3 /* LaunchScreen.storyboard */; };
+		957A9AE02358FC7A00899DF3 /* ACTPlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A9ADF2358FC7A00899DF3 /* ACTPlayerStats.swift */; };
+		957A9AE22358FED200899DF3 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AE12358FED200899DF3 /* BackgroundMusic.mp3 */; };
+		957A9AE42358FEE700899DF3 /* Tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AE32358FEE700899DF3 /* Tap.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		957A9AD22358290000899DF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		957A9AD52358290000899DF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		957A9AD72358290000899DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		957A9ADF2358FC7A00899DF3 /* ACTPlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACTPlayerStats.swift; sourceTree = "<group>"; };
+		957A9AE12358FED200899DF3 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
+		957A9AE32358FEE700899DF3 /* Tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tap.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				957A9AC5235828FA00899DF3 /* AppDelegate.swift */,
+				957A9AE12358FED200899DF3 /* BackgroundMusic.mp3 */,
+				957A9AE32358FEE700899DF3 /* Tap.wav */,
 				957A9AC7235828FA00899DF3 /* GameScene.sks */,
 				957A9AC9235828FB00899DF3 /* Actions.sks */,
 				957A9ACB235828FB00899DF3 /* GameScene.swift */,
+				957A9ADF2358FC7A00899DF3 /* ACTPlayerStats.swift */,
 				957A9ACD235828FB00899DF3 /* GameViewController.swift */,
 				957A9ACF235828FB00899DF3 /* Main.storyboard */,
 				957A9AD22358290000899DF3 /* Assets.xcassets */,
@@ -131,8 +140,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				957A9AE22358FED200899DF3 /* BackgroundMusic.mp3 in Resources */,
 				957A9AD1235828FB00899DF3 /* Main.storyboard in Resources */,
 				957A9AC8235828FA00899DF3 /* GameScene.sks in Resources */,
+				957A9AE42358FEE700899DF3 /* Tap.wav in Resources */,
 				957A9AD32358290000899DF3 /* Assets.xcassets in Resources */,
 				957A9AD62358290000899DF3 /* LaunchScreen.storyboard in Resources */,
 				957A9ACA235828FB00899DF3 /* Actions.sks in Resources */,
@@ -149,6 +160,7 @@
 				957A9ACC235828FB00899DF3 /* GameScene.swift in Sources */,
 				957A9ACE235828FB00899DF3 /* GameViewController.swift in Sources */,
 				957A9AC6235828FA00899DF3 /* AppDelegate.swift in Sources */,
+				957A9AE02358FC7A00899DF3 /* ACTPlayerStats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

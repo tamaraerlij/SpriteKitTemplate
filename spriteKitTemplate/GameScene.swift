@@ -14,9 +14,18 @@ class GameScene: SKScene {
     // Criação das variáveis
     var bird = SKSpriteNode()
     var bg = SKSpriteNode()
+    var backgroundMusic: SKAudioNode!
     
 
     override func didMove(to view: SKView) {
+        // Adicionar música de fundo
+        if let musicURL = Bundle.main.url(forResource: "BackgroundMusic", withExtension: "mp3") {
+        backgroundMusic = SKAudioNode(url: musicURL)
+        addChild(backgroundMusic)
+        }
+        
+        
+        
         
         let bgTexture = SKTexture(imageNamed: "bg.png")
         
