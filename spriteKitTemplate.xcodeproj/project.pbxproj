@@ -18,6 +18,12 @@
 		957A9AE02358FC7A00899DF3 /* ACTPlayerStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957A9ADF2358FC7A00899DF3 /* ACTPlayerStats.swift */; };
 		957A9AE22358FED200899DF3 /* BackgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AE12358FED200899DF3 /* BackgroundMusic.mp3 */; };
 		957A9AE42358FEE700899DF3 /* Tap.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AE32358FEE700899DF3 /* Tap.wav */; };
+		957A9AE62359225D00899DF3 /* CarDoorSlam.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AE52359225C00899DF3 /* CarDoorSlam.mp3 */; };
+		957A9AEC235923B600899DF3 /* DeceleratingAndStopping.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AEB235923B600899DF3 /* DeceleratingAndStopping.wav */; };
+		957A9AEE235923F600899DF3 /* Handbraking.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AED235923F500899DF3 /* Handbraking.wav */; };
+		957A9AF0235924A300899DF3 /* DoorOpenAndClose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AEF235924A300899DF3 /* DoorOpenAndClose.wav */; };
+		957A9AF22359253900899DF3 /* Switch.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AF12359253900899DF3 /* Switch.wav */; };
+		957A9AF4235925C200899DF3 /* MotorOff.wav in Resources */ = {isa = PBXBuildFile; fileRef = 957A9AF3235925C200899DF3 /* MotorOff.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +40,12 @@
 		957A9ADF2358FC7A00899DF3 /* ACTPlayerStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACTPlayerStats.swift; sourceTree = "<group>"; };
 		957A9AE12358FED200899DF3 /* BackgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BackgroundMusic.mp3; sourceTree = "<group>"; };
 		957A9AE32358FEE700899DF3 /* Tap.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Tap.wav; sourceTree = "<group>"; };
+		957A9AE52359225C00899DF3 /* CarDoorSlam.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CarDoorSlam.mp3; sourceTree = "<group>"; };
+		957A9AEB235923B600899DF3 /* DeceleratingAndStopping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DeceleratingAndStopping.wav; sourceTree = "<group>"; };
+		957A9AED235923F500899DF3 /* Handbraking.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Handbraking.wav; sourceTree = "<group>"; };
+		957A9AEF235924A300899DF3 /* DoorOpenAndClose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DoorOpenAndClose.wav; sourceTree = "<group>"; };
+		957A9AF12359253900899DF3 /* Switch.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Switch.wav; sourceTree = "<group>"; };
+		957A9AF3235925C200899DF3 /* MotorOff.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = MotorOff.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +79,12 @@
 			isa = PBXGroup;
 			children = (
 				957A9AC5235828FA00899DF3 /* AppDelegate.swift */,
+				957A9AED235923F500899DF3 /* Handbraking.wav */,
+				957A9AF3235925C200899DF3 /* MotorOff.wav */,
+				957A9AEB235923B600899DF3 /* DeceleratingAndStopping.wav */,
+				957A9AE52359225C00899DF3 /* CarDoorSlam.mp3 */,
+				957A9AEF235924A300899DF3 /* DoorOpenAndClose.wav */,
+				957A9AF12359253900899DF3 /* Switch.wav */,
 				957A9AE12358FED200899DF3 /* BackgroundMusic.mp3 */,
 				957A9AE32358FEE700899DF3 /* Tap.wav */,
 				957A9AC7235828FA00899DF3 /* GameScene.sks */,
@@ -141,8 +159,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				957A9AE22358FED200899DF3 /* BackgroundMusic.mp3 in Resources */,
+				957A9AF22359253900899DF3 /* Switch.wav in Resources */,
+				957A9AEC235923B600899DF3 /* DeceleratingAndStopping.wav in Resources */,
 				957A9AD1235828FB00899DF3 /* Main.storyboard in Resources */,
+				957A9AF0235924A300899DF3 /* DoorOpenAndClose.wav in Resources */,
+				957A9AF4235925C200899DF3 /* MotorOff.wav in Resources */,
+				957A9AE62359225D00899DF3 /* CarDoorSlam.mp3 in Resources */,
 				957A9AC8235828FA00899DF3 /* GameScene.sks in Resources */,
+				957A9AEE235923F600899DF3 /* Handbraking.wav in Resources */,
 				957A9AE42358FEE700899DF3 /* Tap.wav in Resources */,
 				957A9AD32358290000899DF3 /* Assets.xcassets in Resources */,
 				957A9AD62358290000899DF3 /* LaunchScreen.storyboard in Resources */,
