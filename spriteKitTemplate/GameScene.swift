@@ -71,7 +71,15 @@ class GameScene: SKScene {
         // Aparição
         self.addChild(bird)
         
-       
+       let ground = SKNode()
+        ground.position = CGPoint(x: self.frame.midX, y: -self.frame.height / 2)
+        
+        ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.frame.width, height: 1))
+        
+        // O chão não é afetado pela gravidade:
+        ground.physicsBody!.isDynamic = false
+        
+        self.addChild(ground)
         
         
     }
@@ -85,7 +93,9 @@ class GameScene: SKScene {
             let birdTexture = SKTexture(imageNamed: "flappy1.png")
       //  bird.physicsBody!.isDynamic = true
         bird.physicsBody = SKPhysicsBody(circleOfRadius: birdTexture.size().height / 2)
-               bird.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        
+        bird.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        
         bird.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100))
         
      
