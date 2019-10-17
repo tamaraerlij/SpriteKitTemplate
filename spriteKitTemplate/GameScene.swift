@@ -16,10 +16,16 @@ class GameScene: SKScene {
 
     override func didMove(to view: SKView) {
         let birdTexture = SKTexture(imageNamed: "flappy1.png")
+        let birdTexture2 = SKTexture(imageNamed: "flappy2.png")
+        
+        let animation = SKAction.animate(with: [birdTexture, birdTexture2], timePerFrame: 0.1)
+        let makeBirdFlap = SKAction.repeatForever(animation)
         
         bird = SKSpriteNode(texture: birdTexture)
         
         bird.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        bird.run(makeBirdFlap)
         
         self.addChild(bird)
     }
