@@ -19,7 +19,7 @@ class GameScene: SKScene {
 
     override func didMove(to view: SKView) {
         // Adicionar música de fundo
-        if let musicURL = Bundle.main.url(forResource: "BackgroundMusic", withExtension: "mp3") {
+        if let musicURL = Bundle.main.url(forResource: "BackgroundMusic", withExtension: ".mp3") {
         backgroundMusic = SKAudioNode(url: musicURL)
         addChild(backgroundMusic)
         }
@@ -64,7 +64,8 @@ class GameScene: SKScene {
         // Incorporação da textura
         bird = SKSpriteNode(texture: birdTexture)
         
-        // posição do elemento
+      
+        // posição do elemento no meio da tela
         bird.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         bird.run(makeBirdFlap)
         // Aparição
@@ -78,7 +79,17 @@ class GameScene: SKScene {
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       
+        
+        // Somente será afetado pela gravidade quando o usuário tocar na tela
+        
+            let birdTexture = SKTexture(imageNamed: "flappy1.png")
+      //  bird.physicsBody!.isDynamic = true
+        bird.physicsBody = SKPhysicsBody(circleOfRadius: birdTexture.size().height / 2)
+               bird.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        bird.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100))
+        
+     
+             
         }
         
        
