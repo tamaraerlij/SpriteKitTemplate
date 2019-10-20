@@ -15,16 +15,37 @@ class GameScene: SKScene {
     var bird = SKSpriteNode()
     var bg = SKSpriteNode()
     var backgroundMusic: SKAudioNode!
+    @objc func makePipes() {
+        let movePipes = SKAction.move(by: CGVector(dx: -2 * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / 100))
+              
+              let gapHeight = bird.size.height * 4
+              let movementAmount  = arc4random() % UInt32(self.frame.height / 2)
+              let pipeOffSet = CGFloat(movementAmount) - self.frame.height / 4
+              
+              // Criacao da barreira
+              let pipeTexture = SKTexture(imageNamed: "pipe2.png")
+              let pipe1 = SKSpriteNode(texture: pipeTexture)
+              pipe1.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY + pipeTexture.size().height / 2 + gapHeight + pipeOffSet)
+              pipe1.run(movePipes)
+              self.addChild(pipe1)
+              
+              let pipe2Texture = SKTexture(imageNamed: "pipe2.png")
+              let pipe2 = SKSpriteNode(texture: pipe2Texture)
+              pipe2.position = CGPoint(x : self.frame.midX + self.frame.width, y: self.frame.midY - pipe2Texture.size().height / 2 - gapHeight - pipeOffSet)
+              pipe2.run(movePipes)
+              self.addChild(pipe2)
+        
+    }
     
 
-    override func didMove(to view: SKView) {
+    override func didMove(to view: SKView ) {
+        Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.makePipes), userInfo: nil, repeats: true)
+     
         // Adicionar música de fundo
         if let musicURL = Bundle.main.url(forResource: "BackgroundMusic", withExtension: ".mp3") {
         backgroundMusic = SKAudioNode(url: musicURL)
         addChild(backgroundMusic)
         }
-        
-        
         
         
         let bgTexture = SKTexture(imageNamed: "bg.png")
@@ -78,9 +99,9 @@ class GameScene: SKScene {
         
         // O chão não é afetado pela gravidade:
         ground.physicsBody!.isDynamic = false
-        
         self.addChild(ground)
         
+      
         
     }
     
