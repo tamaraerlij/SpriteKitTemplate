@@ -9,11 +9,18 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Criação das variáveis
     var bird = SKSpriteNode()
     var bg = SKSpriteNode()
+    
+    enum ColliderType: UInt32{
+        case Bird = 1
+        case Object = 2
+        
+    }
+    var gameOver = false
     var backgroundMusic: SKAudioNode!
     @objc func makePipes() {
         let movePipes = SKAction.move(by: CGVector(dx: -2 * self.frame.width, dy: 0), duration: TimeInterval(self.frame.width / 100))
@@ -27,18 +34,36 @@ class GameScene: SKScene {
               let pipe1 = SKSpriteNode(texture: pipeTexture)
               pipe1.position = CGPoint(x: self.frame.midX + self.frame.width, y: self.frame.midY + pipeTexture.size().height / 2 + gapHeight + pipeOffSet)
               pipe1.run(movePipes)
+        pipe1.physicsBody = SKPhysicsBody(rectangleOf: pipeTexture.size())
+        pipe1.physicsBody!.isDynamic = false
+        pipe1.physicsBody!.contactTestBitMask = ColliderType.Object.rawValue
+        pipe1.physicsBody!.categoryBitMask = ColliderType.Bird.rawValue
+        pipe1.physicsBody!.collisionBitMask = ColliderType.Bird.rawValue
+        
               self.addChild(pipe1)
               
               let pipe2Texture = SKTexture(imageNamed: "pipe2.png")
               let pipe2 = SKSpriteNode(texture: pipe2Texture)
               pipe2.position = CGPoint(x : self.frame.midX + self.frame.width, y: self.frame.midY - pipe2Texture.size().height / 2 - gapHeight - pipeOffSet)
               pipe2.run(movePipes)
+        
+        pipe2.physicsBody = SKPhysicsBody(rectangleOf: pipeTexture.size())
+        pipe2.physicsBody!.isDynamic = false
+        pipe2.physicsBody!.contactTestBitMask = ColliderType.Object.rawValue
+        pipe2.physicsBody!.categoryBitMask = ColliderType.Bird.rawValue
+        pipe2.physicsBody!.collisionBitMask = ColliderType.Bird.rawValue
+        
               self.addChild(pipe2)
         
     }
-    
+    func didBegin(_ contact: SKPhysicsContact) {
+        self.speed = 0
+        gameOver = true
+    }
 
     override func didMove(to view: SKView ) {
+        
+        self.physicsWorld.contactDelegate = self
         Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.makePipes), userInfo: nil, repeats: true)
      
         // Adicionar música de fundo
@@ -89,38 +114,43 @@ class GameScene: SKScene {
         // posição do elemento no meio da tela
         bird.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         bird.run(makeBirdFlap)
+        
+
+      
+          bird.physicsBody = SKPhysicsBody(circleOfRadius: birdTexture.size().height / 2)
+        bird.physicsBody!.isDynamic = false
+        
+        bird.physicsBody!.contactTestBitMask = ColliderType.Object.rawValue
+        bird.physicsBody!.categoryBitMask = ColliderType.Bird.rawValue
+        bird.physicsBody!.collisionBitMask = ColliderType.Bird.rawValue
         // Aparição
         self.addChild(bird)
         
        let ground = SKNode()
         ground.position = CGPoint(x: self.frame.midX, y: -self.frame.height / 2)
-        
         ground.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.frame.width, height: 1))
         
         // O chão não é afetado pela gravidade:
         ground.physicsBody!.isDynamic = false
+        ground.physicsBody!.contactTestBitMask = ColliderType.Object.rawValue
+        ground.physicsBody!.categoryBitMask = ColliderType.Bird.rawValue
+        ground.physicsBody!.collisionBitMask = ColliderType.Bird.rawValue
+        
         self.addChild(ground)
-        
-      
-        
     }
     
 
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        if gameOver == false {
         // Somente será afetado pela gravidade quando o usuário tocar na tela
+           bird.physicsBody!.isDynamic = true
         
-            let birdTexture = SKTexture(imageNamed: "flappy1.png")
-      //  bird.physicsBody!.isDynamic = true
-        bird.physicsBody = SKPhysicsBody(circleOfRadius: birdTexture.size().height / 2)
+           bird.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
         
-        bird.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
-        
-        bird.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100))
-        
+           bird.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 100)) 
      
-             
+        }
         }
         
        
